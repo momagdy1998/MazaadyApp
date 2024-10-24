@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <item
+        android:id="@+id/home"
+        android:enabled="true"
+        android:icon="@drawable/home_menu"
+        tools:ignore="MenuTitle" />
+    <item
+        android:id="@+id/discover"
+        android:enabled="true"
+        android:icon="@drawable/discover_mene"
+        tools:ignore="MenuTitle" />
+
+    <item
+        android:id="@+id/message"
+        android:enabled="true"
+        android:icon="@drawable/message"
+        tools:ignore="MenuTitle"
+        app:actionLayout="@layout/layout_message" />
+
+
+    <item
+        android:id="@+id/profile"
+        android:enabled="true"
+        android:icon="@drawable/profile"
+        tools:ignore="MenuTitle" />
+</menu>

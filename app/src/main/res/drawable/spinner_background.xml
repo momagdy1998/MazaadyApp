@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+
+    <item>
+
+
+        <layer-list>
+
+            <item android:width="10.4dp"
+                android:height="8dp"
+                android:drawable="@drawable/ic_list_arrow"
+                android:gravity="center_vertical|right"
+                android:right="16dp"
+                tools:ignore="UnusedAttribute"
+                tools:targetApi="m" />
+        </layer-list>
+    </item>
+
+</selector>

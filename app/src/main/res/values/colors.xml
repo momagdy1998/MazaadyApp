@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="green">#4ED442</color>
+    <color name="title_color">#303030</color>
+    <color name="yellow_color">#FCD034</color>
+    <color name="yellow_color_2">#FCCC75</color>
+    <color name="live_Stream_stroke_color">#EC5F5F</color>
+    <color name="live_Stream_color">#4DC9D1</color>
+    <color name="selector_color">#EC5F5F</color>
+    <color name="light_gray_color">#F7F6FA</color>
+    <color name="dark_gray_color">#9D9FA0</color>
+    <color name="gray_color">#8C8C8C</color>
+    <color name="blue_color">#0082CD</color>
+    <color name="move_color">#8D5EF2</color>
+</resources>

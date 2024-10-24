@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.example.mazaady.presentation.home.HomeViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".presentation.home.HomeFragment">
+
+
+
+        <FrameLayout
+            android:id="@+id/frameProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/frame_layout_bg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
+                android:layout_width="@dimen/_34sdp"
+                android:layout_height="@dimen/_34sdp"
+                android:layout_gravity="center"
+                android:paddingVertical="3dp"
+                android:paddingEnd="6dp"
+                android:src="@drawable/avatar"
+                app:civ_circle_background_color="@android:color/transparent" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="@dimen/_10sdp"
+                android:layout_height="@dimen/_10sdp"
+                android:layout_gravity="end|bottom"
+                android:layout_margin="@dimen/_1sdp"
+                android:src="@color/green"
+                app:civ_border_color="@color/white"
+                app:civ_border_width="@dimen/_2sdp" />
+
+
+        </FrameLayout>
+
+        <ImageView
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:src="@drawable/notifications"
+            app:layout_constraintBottom_toBottomOf="@id/frameProfile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/frameProfile" />
+
+        <TextView
+            android:id="@+id/userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Mohamed Magdy"
+            android:textColor="@color/title_color"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintStart_toEndOf="@id/frameProfile"
+            app:layout_constraintTop_toTopOf="@id/frameProfile" />
+
+        <ImageView
+            android:id="@+id/imgAward"
+            android:layout_width="@dimen/_12sdp"
+            android:layout_height="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_6sdp"
+            android:src="@drawable/award"
+            app:layout_constraintStart_toStartOf="@id/userName"
+            app:layout_constraintTop_toBottomOf="@id/userName" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_6sdp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="+1600 points"
+            android:textColor="@color/yellow_color"
+            android:textSize="@dimen/_12ssp"
+            app:layout_constraintBottom_toBottomOf="@id/imgAward"
+            app:layout_constraintStart_toEndOf="@id/imgAward"
+            app:layout_constraintTop_toTopOf="@id/imgAward" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvLiveStream"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/frameProfile"
+            app:setList="@{viewModel.peoples.toData()}"
+            app:showWhenSuccess="@{viewModel.peoples}"
+            tools:itemCount="5"
+            tools:listitem="@layout/item_layout_user" />
+
+        <ProgressBar
+            android:id="@+id/progressLive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:visibility="invisible"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/frameProfile"
+            app:showWhenLoading="@{viewModel.courses}" />
+
+        <TextView
+            android:id="@+id/upcomingText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="@string/upcoming"
+            android:visibility="invisible"
+            tools:visibility="visible"
+            android:textColor="@color/title_color"
+            android:textSize="@dimen/_14ssp"
+            app:layout_constraintStart_toStartOf="@id/rvLiveStream"
+            app:layout_constraintTop_toBottomOf="@id/rvLiveStream"
+            app:showWhenSuccess="@{viewModel.courses}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:fontFamily="@font/poppins_regular"
+            android:text="@string/course_of_this_week"
+            android:textColor="@color/title_color"
+            android:textSize="@dimen/_14ssp"
+            android:visibility="invisible"
+            tools:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@id/upcomingText"
+            app:layout_constraintStart_toEndOf="@id/upcomingText"
+            app:layout_constraintTop_toTopOf="@id/upcomingText"
+            app:showWhenSuccess="@{viewModel.courses}" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvCourses"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintStart_toStartOf="@id/rvLiveStream"
+            app:layout_constraintTop_toBottomOf="@id/upcomingText"
+            app:setList="@{viewModel.courses.toData()}"
+            app:showWhenSuccess="@{viewModel.courses}"
+            tools:listitem="@layout/list_item__courses" />
+
+        <ProgressBar
+            android:id="@+id/progressCourses"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/rvLiveStream"
+            app:layout_constraintTop_toBottomOf="@id/upcomingText"
+            app:showWhenLoading="@{viewModel.courses}" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavView"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="@color/white"
+
+            android:elevation="0dp"
+            app:itemIconTint="@drawable/bottom_nav_selected_color"
+            app:itemPaddingTop="8dp"
+            app:itemRippleColor="@color/light_gray_color"
+            app:labelVisibilityMode="auto"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:menu="@menu/bottom_sheet_menu" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginVertical="@dimen/_12sdp"
+            android:visibility="invisible"
+
+            app:layout_constraintBottom_toTopOf="@id/dots_indicator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/rvCourses"
+            app:layout_constraintTop_toBottomOf="@id/rvCourses"
+            app:showWhenSuccess="@{viewModel.coursesDetails}" />
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/viewPager"
+            app:layout_constraintEnd_toEndOf="@id/viewPager"
+            app:layout_constraintStart_toStartOf="@id/viewPager"
+            app:layout_constraintTop_toTopOf="@+id/viewPager"
+            android:visibility="invisible"
+            app:showWhenLoading="@{viewModel.coursesDetails}" />
+
+        <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+            android:id="@+id/dots_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_14sdp"
+            app:dotsColor="@color/light_gray_color"
+            app:dotsCornerRadius="8dp"
+            app:dotsSize="@dimen/_8sdp"
+            app:dotsSpacing="4dp"
+            app:dotsWidthFactor="2.5"
+            app:layout_constraintBottom_toTopOf="@id/bottomNavView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:progressMode="true"
+
+            app:selectedDotColor="@color/selector_color"
+            app:showWhenSuccess="@{viewModel.coursesDetails}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

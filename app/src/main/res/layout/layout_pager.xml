@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.example.mazaady.data.model.home.CourseModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="@dimen/_16sdp"
+        app:cardCornerRadius="@dimen/_18sdp"
+        app:cardElevation="@dimen/_2sdp">
+
+        <ImageView
+            android:id="@+id/courseImg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/img_test"
+            app:imageUrl="@{model.courseImg}" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingHorizontal="@dimen/_12sdp">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/verticalGuideLine"
+                android:layout_width="1dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".75" />
+
+            <TextView
+                android:id="@+id/freeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:background="@drawable/tv_free_bg"
+                android:fontFamily="@font/poppins_regular"
+                android:paddingHorizontal="@dimen/_8sdp"
+                android:paddingVertical="@dimen/_2sdp"
+                android:text="Free E-book"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/courseName"
+                text="@{model.courseTitle}"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_medium"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/verticalGuideLine"
+                app:layout_constraintStart_toStartOf="@id/freeText"
+                app:layout_constraintTop_toBottomOf="@id/freeText"
+                tools:text="Step design sprint for beginner" />
+
+            <ImageView
+                android:id="@+id/stopWatch"
+                android:layout_width="@dimen/_12sdp"
+                android:layout_height="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:src="@drawable/stopwatch"
+                app:layout_constraintStart_toStartOf="@id/courseName"
+                app:layout_constraintTop_toBottomOf="@id/courseName" />
+
+            <TextView
+                android:id="@+id/courseDuration"
+                text="@{model.courseTime}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_6sdp"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center"
+                android:textColor="@color/dark_gray_color"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintBottom_toBottomOf="@id/stopWatch"
+                app:layout_constraintStart_toEndOf="@id/stopWatch"
+                app:layout_constraintTop_toTopOf="@id/stopWatch"
+                tools:text="5h:30m" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:weightSum="3"
+                app:layout_constraintStart_toStartOf="@id/stopWatch"
+                app:layout_constraintTop_toBottomOf="@id/courseDuration">
+
+                <TextView
+                    android:id="@+id/tvLessonsCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_4sdp"
+                    android:background="@drawable/lessons_tv_bg"
+                    android:fontFamily="@font/poppins_regular"
+                    android:padding="@dimen/_3sdp"
+                    android:text="@{model.getLessons()}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_8ssp"
+                    tools:text="6 lessons" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_4sdp"
+                    android:background="@drawable/course_title_tv_bg"
+                    android:fontFamily="@font/poppins_regular"
+                    android:padding="@dimen/_3sdp"
+                    android:text="@{model.courseName}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_8ssp"
+                    tools:text="Ui/Ux" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_4sdp"
+                    android:background="@drawable/free_title_tv_bg"
+                    android:fontFamily="@font/poppins_regular"
+                    android:padding="@dimen/_3sdp"
+                    android:text="@{model.isFreeCourse()}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_8ssp"
+                    tools:text="Free" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imgInstructor"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginTop="@dimen/_6sdp"
+                tools:src="@drawable/img_test"
+                app:loadImage="@{model.instructorImage}"
+                app:layout_constraintStart_toStartOf="@id/linearLayout"
+                app:layout_constraintTop_toBottomOf="@id/linearLayout" />
+
+            <TextView
+                android:id="@+id/nameInstructor"
+                text="@{model.instructorName}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:fontFamily="@font/poppins_semibold"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintStart_toEndOf="@id/imgInstructor"
+                app:layout_constraintTop_toTopOf="@id/imgInstructor"
+                tools:text="Ahmed " />
+
+            <TextView
+                text="@{model.instructorTitle}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:fontFamily="@font/poppins_regular"
+                android:textColor="@color/dark_gray_color"
+                android:textSize="@dimen/_8ssp"
+                app:layout_constraintStart_toStartOf="@id/nameInstructor"
+                app:layout_constraintTop_toBottomOf="@id/nameInstructor"
+                tools:text="Android developer"
+
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+</layout>
+
+
+
+
+
+
+
+
+
+
+

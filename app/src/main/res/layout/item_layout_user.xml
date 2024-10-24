@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+          <variable
+              name="user"
+              type="com.example.mazaady.data.model.home.LiveStream" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_12sdp">
+        <FrameLayout
+            android:layout_width="@dimen/_74sdp"
+            android:layout_height="@dimen/_74sdp"
+            android:background="@drawable/frame_layout_live_bg">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="@dimen/_64sdp"
+                android:layout_height="@dimen/_64sdp"
+                android:layout_margin="@dimen/_4sdp"
+                app:cardCornerRadius="@dimen/_20sdp"
+                app:cardElevation="0dp"
+                android:layout_gravity="center">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/img_test"
+                    app:imageUrl="@{user.imageResId}"
+                    android:scaleType="fitXY" />
+
+            </androidx.cardview.widget.CardView>
+
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/cardLive"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_24sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:background="@drawable/circle_frame_white"
+            android:layout_gravity="bottom|end">
+
+            <FrameLayout
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:background="@drawable/circle_frame_green"
+                />
+
+            <ImageView
+                android:layout_width="@dimen/_14sdp"
+                android:layout_height="@dimen/_14sdp"
+                android:layout_gravity="center"
+                android:src="@drawable/video_icon"
+                />
+
+
+        </FrameLayout>
+
+    </FrameLayout>
+
+</layout>
