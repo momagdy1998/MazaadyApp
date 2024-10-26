@@ -13,8 +13,8 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.Response
 
-fun Context.showMessage(message:String){
-    Toast.makeText(this,message,Toast.LENGTH_LONG).show()
+fun Context.showMessage(message: String) {
+    Toast.makeText(this, message, Toast.LENGTH_LONG).show()
 }
 
 fun <T> wrapWithFlow(function: () -> T): Flow<Resources<T>?> {

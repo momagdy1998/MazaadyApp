@@ -18,6 +18,17 @@
         android:background="@color/white"
         tools:context=".presentation.home.HomeFragment">
 
+        <ImageView
+            android:id="@+id/btnNavigate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/arrow"
+            app:layout_constraintBottom_toBottomOf="@+id/upComingDetails"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/upComingDetails"
+            app:layout_constraintTop_toTopOf="@+id/upComingDetails"
+            app:tint="@color/selector_color" />
+
 
 
         <FrameLayout
@@ -53,6 +64,7 @@
         </FrameLayout>
 
         <ImageView
+            android:id="@+id/ic_notification"
             android:layout_width="@dimen/_20sdp"
             android:layout_height="@dimen/_20sdp"
             android:layout_marginEnd="@dimen/_10sdp"
@@ -137,6 +149,7 @@
             app:showWhenSuccess="@{viewModel.courses}" />
 
         <TextView
+            android:id="@+id/upComingDetails"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_4sdp"

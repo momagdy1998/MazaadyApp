@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.mazaady.R
 import com.example.mazaady.base.BaseFragment
 import com.example.mazaady.data.model.home.Course
@@ -44,7 +45,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), ICourses, ILiveStream,
         setUpliveStreamAdapter()
         setUpNavView()
         setUpPagerWithIndicators()
-
+        viewBinding.btnNavigate.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_categoriesFragment)
+        }
 
     }
 

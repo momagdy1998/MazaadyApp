@@ -1,6 +1,7 @@
 package com.example.mazaady.presentation.categories
 
 import android.util.Log
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.mazaady.data.model.allCategoriesResponse.AllCategoriesResponse
@@ -30,6 +31,7 @@ class CategoriesViewModel @Inject constructor(
     private val _allChildOptions =
         MutableStateFlow<Resources<GetOptionsResponse?>>(Resources.Loading)
     val allChildOptions: StateFlow<Resources<GetOptionsResponse?>> get() = _allChildOptions
+
 
 
     fun getAllCategories() {

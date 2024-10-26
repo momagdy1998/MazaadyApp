@@ -3,13 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/categoriesFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.mazaady.presentation.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_categoriesFragment"
+            app:destination="@id/categoriesFragment" />
     </fragment>
     <fragment
         android:id="@+id/categoriesFragment"
@@ -17,7 +20,16 @@
         android:label="fragment_categories"
         tools:layout="@layout/fragment_categories" >
         <action
-            android:id="@+id/action_categoriesFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            android:id="@+id/action_categoriesFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.example.mazaady.presentation.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" >
+        <argument
+            android:name="pairsValues"
+            app:argType="com.example.mazaady.data.model.PairString[]" />
     </fragment>
 </navigation>

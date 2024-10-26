@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <TextView
+        android:id="@+id/propertyName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:fontFamily="@font/poppins_medium"
-        tools:text="Test "
         android:layout_margin="@dimen/_4sdp"
+        android:fontFamily="@font/poppins_medium"
         android:textColor="@color/title_color"
-        android:id="@+id/propertyName"
         android:textSize="@dimen/_14ssp"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Test " />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constrainLayout"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_40sdp"
         android:layout_marginVertical="@dimen/_6sdp"
-        app:layout_constraintTop_toBottomOf="@id/propertyName"
-        android:background="@drawable/spinner_layout_bg">
+        android:background="@drawable/spinner_layout_bg"
+        app:layout_constraintTop_toBottomOf="@id/propertyName">
 
         <Spinner
             android:id="@+id/spinnerOptions"
@@ -33,6 +33,28 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <EditText
+        android:id="@+id/otherInputField"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:background="@color/light_gray_color"
+        android:hint="@string/please_specify"
+        android:padding="@dimen/_8sdp"
+        android:visibility="gone"
+        tools:visibility="visible"
+        app:layout_constraintTop_toBottomOf="@id/constrainLayout" />
+
+    <Button
+        android:id="@+id/btnSubmitOption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/otherInputField"
+        app:layout_constraintStart_toStartOf="@id/otherInputField"
+        android:layout_marginTop="@dimen/_2sdp"
+        android:text="@string/submit_option"
+        android:textAllCaps="false"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

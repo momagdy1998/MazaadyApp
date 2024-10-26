@@ -52,18 +52,6 @@
         android:layout_weight="1"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-    <EditText
-        android:id="@+id/otherInputField"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="@dimen/_6sdp"
-        android:hint="Please specify..."
-        android:textColorHint="@color/gray_color"
-        android:background="@color/light_gray_color"
-        android:padding="@dimen/_8sdp"
-        android:visibility="gone"
-        />
-
     <Button
         android:id="@+id/buttonSubmit"
         android:layout_width="match_parent"

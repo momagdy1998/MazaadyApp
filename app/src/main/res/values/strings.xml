@@ -8,4 +8,6 @@
     <string name="messages">Messages</string>
     <string name="discover">Discover</string>
     <string name="profile">Profile</string>
+    <string name="please_specify">Please specify...</string>
+    <string name="submit_option">Submit Option</string>
 </resources>

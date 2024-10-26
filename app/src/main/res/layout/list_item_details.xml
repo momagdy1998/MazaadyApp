@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="pair"
+            type="com.example.mazaady.data.model.PairString" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_4sdp"
+        android:layout_marginVertical="@dimen/_8sdp"
+        android:background="@drawable/spinner_layout_bg">
+
+        <TextView
+            android:id="@+id/textTitleProperty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="@dimen/_14ssp"
+            android:layout_margin="@dimen/_8sdp"
+            android:textColor="@color/blue_color"
+            android:text="@{pair.fistValue}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Title" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/textTitleProperty"
+            app:layout_constraintBottom_toBottomOf="@id/textTitleProperty"
+            android:layout_marginEnd="8dp"
+            tools:text="Name"
+            android:text="@{pair.secondValue}"
+            android:textSize="@dimen/_12ssp"
+            android:fontFamily="@font/poppins_medium" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
